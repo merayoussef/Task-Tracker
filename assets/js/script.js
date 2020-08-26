@@ -41,6 +41,7 @@ var createTaskE1 = function(taskDataObj) {
     //add html content to div
     taskInfoE1.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class ='task-type'>" + taskDataObj.type + "</span>";
     var taskActionsE1 = createTaskActions(taskIdCounter);
+    listItemE1.appendChild(taskInfoE1);
     listItemE1.appendChild(taskActionsE1);
 
     // add entire list item to list 
@@ -53,7 +54,7 @@ var createTaskE1 = function(taskDataObj) {
 
 var createTaskActions = function(taskId) {
     var actionContainerE1 = document.createElement("div");
-    actionContainerE1.className= "task-actions";
+    actionContainerE1.className = "task-actions";
 
     // create edit button
     var editButtonE1 = document.createElement("button");
@@ -114,5 +115,5 @@ var taskButtonHandler = function(event) {
     taskSelected.remove();
   }
 
-  
+
 pageContentE1.addEventListener("click", taskButtonHandler);
