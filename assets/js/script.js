@@ -16,15 +16,35 @@ var taskFormHandler = function(event) {
     
     formE1.reset();
 
-    // package up data as an object
-    var taskDataObj = {
-        name: taskNameInput,
-        type: taskTypeInput
-    };
+    var isEdit = formE1.hasAttribute("data-task-id");
+    
+    // has data attributes, so get task id and call function to complete edit process
+    if (isEdit) {
+        var taskId = formE1.getAttribute("data-task-id");
+        completeEditTask(taskNameInput, taskTypeInput, taskId);
+    }
 
-    // send it as an argument to createTaskE1
+    //no data attribute, so create object as normal and pass to createTaskE1 function
+    else {
+        var taskDataObj = {
+            name: taskNameInput,
+            type: taskTypeInput,
+        };
     createTaskE1(taskDataObj);
+    }
 }
+
+var completeEditTask = function(taskName, taskType, taskId) {
+    // find the matching task list item
+    var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
+
+    // set new values
+    taskSelected.querySelector("h3.task-name").textContent = taskName;
+    taskSelected.querySelector("span.task-type").textContent = taskType;
+
+    alert("Task Updated!");
+    
+};
 
 var createTaskE1 = function(taskDataObj) {
     // create list item
