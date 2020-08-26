@@ -238,4 +238,4 @@ pageContentEl.addEventListener("change", taskStatusChangeHandler);
 pageContentEl.addEventListener("dragstart", dragTaskHandler);
 pageContentEl.addEventListener("dragover", dropZoneDragHandler);
 pageContentEl.addEventListener("drop", dropTaskHandler);
-pageContentEl.addEventListener("drageleave", dragLeaveHandler);
+pageContentEl.addEventListener("dragleave", dragLeaveHandler);
